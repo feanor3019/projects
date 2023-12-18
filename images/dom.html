@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulatable Webpage</title>
+</head>
+<body>
+<div id="everything">
+    <h1 id="heading1">Hideable Headings, Inc.</h1>
+    <h1 id="heading2">Invisible Titles, Ltd.</h1>
+    <form name="checkboxform">
+        <input type="checkbox" name="checkbox1" onclick="showHide();" checked>
+        <span>Show first heading</span><br>
+        <input type="checkbox" name="checkbox2" onclick="showHide();" checked>
+        <span>Show second heading</span><br>
+    </form>
+    <form name="changeform1">
+        <input name="newtitle" size="40">
+        <button type="button" onclick="changeTitle1();">Change first heading!</button>
+    </form><br>
+    <form name="changeform2">
+        <input name="newtitle" size="40">
+        <button type="button" onclick="changeTitle2();">Change second heading!</button>
+    </form><br>
+    <form name="changeform">
+        <input name="sentence" size="65">
+        <button type="button"onclick="addText();">Add to the movable square!</button>
+    </form><br>
+    <form name="theform">
+        <h2 id="sortednamesheader">Sorted Names</h2>
+        Name:
+        <input name="newname" size="20">
+        <input type="button" name="addname" value="Add" onclick="sortNames();"><br>
+        <textarea cols="60" rows="10" name="sorted">Sorted content will appear here.</textarea>
+    </form><br>
+    <button type="button" onclick="alertMe();" onmouseover="alert('Are you planning to click the button?')">What webpage am I on?</button>
+    <button type="button" onclick="pos(0,-1,1);">Up</button>
+    <button type="button" onclick="pos(0,1,1);">Down</button>
+    <button type="button" onclick="pos(-1,0,1);">Left</button>
+    <button type="button" onclick="pos(1,0,1);">Right</button>
+    <button type="button" onclick="pos(0,-1,30);">Super Up</button>
+    <button type="button" onclick="pos(0,1,30);">Super Down</button>
+    <button type="button" onclick="pos(-1,0,30);">Super Left</button>
+    <button type="button" onclick="pos(1,0,30);">Super Right</button>
+    <button type="button" onclick="pos(0,-1,100);">Super Duper Up</button>
+    <button type="button" onclick="pos(0,1,100);">Super Duper Down</button>
+    <button type="button" onclick="pos(-1,0,100);">Super Duper Left</button>
+    <button type="button" onclick="pos(1,0,100);">Super Duper Right</button>
+    <button type="button" onclick="pos(0,-1,Math.floor(Math.random()*500));">Randomly Up</button>
+    <button type="button" onclick="pos(0,1,Math.floor(Math.random()*500));">Randomly Down</button>
+    <button type="button" onclick="pos(-1,0,Math.floor(Math.random()*500));">Randomly Left</button>
+    <button type="button" onclick="pos(1,0,Math.floor(Math.random()*500));">Randomly Right</button>
+    <button type="button" onclick="hideSquare();">Hide</button>
+    <button type="button" onclick="showSquare();">Show</button>
+    <button type="button" onclick="document.getElementById('square').style.background='red';">Red</button>
+    <button type="button" onclick="document.getElementById('square').style.background='orange';">Orange</button>
+    <button type="button" onclick="document.getElementById('square').style.background='yellow';">Yellow</button>
+    <button type="button" onclick="document.getElementById('square').style.background='green';">Green</button>
+    <button type="button" onclick="document.getElementById('square').style.background='blue';">Blue</button>
+    <button type="button" onclick="document.getElementById('square').style.background='purple';">Purple</button>
+    <button type="button" onclick="hideEverything();">NEVER PUSH THIS BUTTON!!!</button>
+    <button type="button" onclick="var h='Haiku Hour of hidden Homes!'; alert(h.toUpperCase());">h.toUpperCase()</button>
+    <button type="button" onclick="var h='Haiku Hour of hidden Homes!'; alert(h.toLowerCase());">h.toLowerCase()</button>
+    <button type="button" onclick="location.reload();">Refresh</button>
+    <button type="button" onclick="greet('John D. Rockefeller');">I am John D. Rockefeller</button>
+    <button type="button" onclick="greet('Eric John Hosmer');">I am Eric John Hosmer</button>
+    <button type="button" onclick="greet('Eric Jacob Habing');">I am Eric Jacob Habing</button>
+    <button type="button" onclick="greet('Unfortunate Soul');">I am Unfortunate Soul</button>
+    <button type="button" onclick="greet('Frodo Baggins');">I am Frodo Baggins</button>
+    <button type="button" onclick="greet('Samwise Gamgee'); location.href='http://en.wikipedia.org/wiki/Samwise_Gamgee';">I am Samwise Gamgee</button>
+    <button type="button" onclick="printStuff();">Print Card Info</button>
+    <button type="button" onclick="_();">Do Duh Ding</button>
+    <button type="button" onclick="averageRand();">Test javaScript Math.random()</button>
+    <button type="button" onclick="malachisBirthday();">FAQ: When was Dr. Ezekiel Collins born?</button>
+    <button type="button" onclick="greetOnTheHour();">Salve, aut salvete?</button>
+    <button type="button" onclick="loopExperiment();">Run loopExperiment();</button>
+    <p onmousewheel="location.href='http://www.acellus.com';">The Link That You Cannot Click</p>
+    <a href="http://www.google.com" id="leavesitelink">Click this link to leave the site</a><br>
+    <a href="#" id="testlink">Test to see what events are handled when you click this link.</a>
+    <hr>
+    <div id="testarea"></div>
+    <div id="typestuff">You Typed:<br></div>
+    <div id="typencodestuff">Encoded Message:<br></div>
+    <div id="printinfohere1"></div>
+    <div id="printinfohere2"></div>
+    <div id="printinfohere3"></div>
+    <div id="printinfohere4"></div>
+    <div id="printinfohere5"></div>
+
+    <div id="square" style="
+    position: absolute;
+    top: 150px;
+    left: 700px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: #e0e0e0;
+    "></div>
+    <script>
+        function alertMe() {
+            alert("You are on "+location.host);
+            document.getElementsByTagName("button").style.color = "#nhf7we";
+        }
+        var x=700,y=150;
+        function pos(dx,dy,size) {
+            if (!document.getElementById) return;
+            x += dx*size;
+            y += dy*size;
+            obj = document.getElementById("square");
+            obj.style.left=x + "px";
+            obj.style.top=y + "px";
+        }
+        function hideSquare() {
+            if (!document.getElementById) return;
+            obj = document.getElementById("square");
+            obj.style.display="none";
+        }
+        function showSquare() {
+            if (!document.getElementById) return;
+            obj = document.getElementById("square");
+            obj.style.display="block";
+        }
+        function showHide() {
+            if (!document.getElementById) return;
+            var heading1thisvariableisabouttoget_reallyreallylongbecauseifeellike_itisabsolutelyneccessarytofillupmyprogramwithtrashanditis446whenwearewritingthisandericisbeingabeanintheskyandthisisnowbecomingthelongestlineihaveeverseenandithinkthatilovepizzaandpieswithextrabeansandpoignantwigswithunneccessaryhorsecollarandrefsfaultsaretheonlywaythatwecouldeverlosethedudejumpedontherecieversbackanditwaskelceandhecaughtitandoffenceandbadrefereesoverthere_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ = document.getElementById("heading1");
+            var heading2 = document.getElementById("heading2");
+            var showheading1 = document.checkboxform.checkbox1.checked;
+            var showheading2 = document.checkboxform.checkbox2.checked;
+            heading1thisvariableisabouttoget_reallyreallylongbecauseifeellike_itisabsolutelyneccessarytofillupmyprogramwithtrashanditis446whenwearewritingthisandericisbeingabeanintheskyandthisisnowbecomingthelongestlineihaveeverseenandithinkthatilovepizzaandpieswithextrabeansandpoignantwigswithunneccessaryhorsecollarandrefsfaultsaretheonlywaythatwecouldeverlosethedudejumpedontherecieversbackanditwaskelceandhecaughtitandoffenceandbadrefereesoverthere_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________.style.visibility=(showheading1) ? "visible": "hidden";
+            heading2.style.visibility=(showheading2) ? "visible": "hidden";
+        }
+        function changeTitle1() {
+            if (!document.getElementById) return;
+            var newtitle = document.changeform1.newtitle.value;
+            var heading1 = document.getElementById("heading1");
+            heading1.firstChild.nodeValue = newtitle;
+        }
+        function changeTitle2() {
+            if (!document.getElementById) return;
+            var newtitle = document.changeform2.newtitle.value;
+            var heading2 = document.getElementById("heading2");
+            heading2.firstChild.nodeValue = newtitle;
+        }
+        function addText() {
+            if (!document.getElementById) return;
+            var sentence=document.changeform.sentence.value;
+            var node=document.createTextNode(" " + sentence + " Eric loves pizza.");
+            document.getElementById("square").appendChild(node);
+            document.changeform.sentence.value="";
+        }
+        function hideEverything() {
+            alert("Say farewell to all that you love on this webpage...");
+            document.getElementById("everything").style.visibility = "hidden";
+            document.getElementById("everything").style.color = "white";
+        }
+        var numberNames = 0;
+        var names = [];
+        function sortNames() {
+            thename = document.theform.newname.value;
+            names[numberNames] = thename;
+            numberNames++;
+            names.sort();
+            document.theform.sorted.value = names.join("\n");
+        }
+        function greet(who) {
+            alert("Happy Holly Day, " + who + "!")
+        }
+
+        function printCard(location) {
+            var name_line = "<strong>Name: </strong>" + this.name + "<br>\n";
+            var color_line = "<strong>Favorite Color: </strong>" + this.color + "<br>\n";
+            var food_line = "<strong>Favorite Food: </strong>" + this.food + "<br>\n";
+            var want_line = "<strong>Most Wanted Thing: </strong>" + this.want + "<br>\n";
+            var team_line = "<strong>Favorite Team: </strong>" + this.team + "<hr>\n";
+            document.getElementById(location).innerHTML=name_line+ color_line+ food_line+ want_line+ team_line;
+        }
+        function card(name, color, food, want, team) {
+            this.name = name;
+            this.color = color;
+            this.food = food;
+            this.want = want;
+            this.team = team;
+            this.printCard = printCard;
+        }
+        var joe = new card("Joe Jones", "red", "pickles", "a backyard pickle factory", "The Beans");
+        var jimbo = new card("Jimbo Type", "green", "spagghetti", "true love", "The Packers");
+        var duo = new card("Duo Lingo", "purple", "Futopisdod", "to know all languages", "The Falcons");
+        var eric = new card("Eric J. H.", "maroon", "stroganoff beer", "might maybe want if it works out to maybe be the kind of greatest player of if it works out of all time maybe", "The Chief Sox");
+        var star = new card("Starr Wokdedd", "yellow", "frozen pineapple", "to own a car", "The Vikings");
+        function printStuff() {
+            joe.printCard("printinfohere1");
+            jimbo.printCard("printinfohere2");
+            duo.printCard("printinfohere3");
+            eric.printCard("printinfohere4");
+            star.printCard("printinfohere5");
+        }
+
+        function randInt(num) {
+            // # between 1 and num
+            return Math.floor(Math.random()*num) + 1;
+        }
+        function _() {
+            var _ = randInt(parseInt(prompt("I will pick a random number between 1 and:")));
+            alert("The random number is "+_+".")
+        }
+        function averageRand() {
+            var total = 0;
+            var average;
+            var num;
+            var endtotal = 0;
+            for (j=1; j<=3; j++) {
+                for (i=1; i<=5000; i++) {
+                    num = Math.random();
+                    total+=num;
+                    if (i % 1000 == 0) {
+                        document.write("Generated " + i + " numbers...<br>");
+                    }
+                }
+                average = total/5000;
+                average = Math.round(average * 1000) /1000;
+                total = Math.round(total*1000)/1000;
+                document.write("<h2>Average of 5000 numbers is: " + average + "</h2>");
+                document.write("<h2>Total of 5000 numbers is: " + total + "</h2>");
+                document.write("<hr>")
+                endtotal += total;
+                total = 0;
+            }
+            var endaverage = endtotal/15000;
+            endaverage = Math.round(endaverage*1000)/1000;
+            endtotal = Math.round(endtotal*1000)/1000;
+            document.write("<h1>Average of 15000 numbers is: " + endaverage + "</h1>");
+            document.write("<h1>Total of 15000 numbers is: " + endtotal + "</h1>");
+            
+        }
+        function malachisBirthday() {
+            var counter = randInt(prompt("Searching for a random # of beans between 1 and..."));
+            var birthday = new Date();
+            birthday.setFullYear(2009);
+            birthday.setMonth(0);
+            birthday.setDate(19);
+            var months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ];
+            alert("Dr. Ezekiel Collins, the programmer of this webpage, was born on "+months[birthday.getMonth()]+" "+birthday.getDate()+", "+birthday.getFullYear()+".");
+            alert("Found " + counter + ((counter == 1) ? " bean." : " beans."));
+        }
+        function greetOnTheHour() {
+            now = new Date();
+            var hour_of_day = now.getHours();
+            var minute_of_hour = now.getMinutes();
+            var seconds_of_minute = now.getSeconds();
+            document.write("<h2> You pushed the button at " + hour_of_day + ":" + minute_of_hour + ":" + seconds_of_minute + "</h2>");
+            document.write("<p>");
+            if (hour_of_day < 12) {
+                document.write("Good morning.");
+            } else if ((hour_of_day >= 14) && (hour_of_day <= 17)) {
+            document.write("Good afternoon.*<br><br><br><p style='font-size: 4pt;'>*We mean no offense by this statement.</p>");
+            } else if (hour_of_day >= 17) {
+                document.write("Good evening.");
+            } else {
+                document.write("Good day.");
+            }
+            document.write("</p>");
+            var blrua=0;
+            for (i=1; i<=10; i++) {
+                blrua+= randInt(100);
+            }
+            alert(blrua);
+            alert("Electron Volts! How didst thou-");
+            alert("I hath taken the stairway.");
+        }
+        function loopExperiment() {
+            var names = [];
+            var i=0;
+            do {
+                next = prompt(((i!=0) ? "Enter the next name." : "Enter a name."),"");
+                if (next > " ") names[i] = next;
+                i++;
+            } while (next > " ");
+            alert((names.length) + " names entered.");
+            names.sort();
+            alert("Names will be displayed in alphabetical order.");
+            for (i in names) {
+                alert("Name " + (parseInt(i)+1) + ": " + names[i]);
+            }
+        }
+        function mouseAlert() {
+            alert("You clicked on the sorted names header.");
+        }
+        document.getElementById("sortednamesheader").onmousedown = mouseAlert;
+        // document.getElementById("sortednamesheader").addEventListener("click", mouseAlert); //This is another way of doing it
+        function goAway(e) {
+            if (!confirm("Are you sure?")) {
+                e.preventDefault();
+            }
+        }
+        document.getElementById("leavesitelink").addEventListener("click", goAway);
+        function mouseStatus(e) {
+            var whichOne;
+            if (!e) e = window.event;
+            btn = e.button;
+            switch(btn) {
+                case(0):
+                    whichOne = "Left";
+                    break;
+                case(1):
+                    whichOne = "Middle";
+                    break;
+                case(2):
+                    whichOne = "Right";
+                    break;
+                default:
+                    whichOne = "UNKNOWN";
+            }
+            message = e.type + " : " + whichOne + "<br>";
+            document.getElementById('testarea').innerHTML+=message;
+            e.preventDefault();
+        }
+        var obj = document.getElementById("testlink");
+        obj.addEventListener("click", mouseStatus);
+        obj.addEventListener("dblclick", mouseStatus);
+        obj.addEventListener("mousedown", mouseStatus);
+        obj.addEventListener("mouseup", mouseStatus);
+        function displayKey(e) {
+            var keycode = e.which;
+            var character = String.fromCharCode(keycode);
+            var ncodecharacter = String.fromCharCode(parseInt(keycode)+randInt(5));
+            var keysParagraph = document.getElementById("typestuff");
+            var keysNcodeParagraph = document.getElementById("typencodestuff");
+            keysParagraph.innerHTML += character;
+            keysNcodeParagraph.innerHTML += ncodecharacter;
+        }
+        document.addEventListener("keypress",displayKey);
+        window.addEventListener("load", function() {
+            alert("Page successfully loaded.");
+        });
+        function windowExperiment() {
+            newSmallWin = window.open("", "small", "width=300, height=220, toolbar=0, status=0");
+        }
+        timeoutID = window.setTimeout("alert('10 seconds have passed since the loading of this page.')", 10000)
+    </script>
+</div>
+</body>
+</html>
