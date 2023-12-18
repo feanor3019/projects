@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Book</title>
+    <style>
+        fieldset {
+            width: 75%;
+            border: 2px solid #9435d4;
+        }
+        legend {
+            font-weight: bold;
+            font-size: 125%;
+        }
+        label.question {
+            width: 225px;
+            float: left;
+            text-align: left;
+            font-weight: bold;
+        }
+        span.question {
+            font-weight: bold;
+        }
+        input, textarea, select, button {
+            border: 1px solid black;
+            padding: 3px;
+        }
+        #buttons {
+            margin-top: 12px;
+        }
+        #errors {
+            color: red;
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guest Book</h1>
+    <form name="gbForm" method="post" action="URL_to_script">
+        <output id="errors"></output>
+        <fieldset>
+            <legend>Personal Info</legend>
+            <p>
+                <label class="question"for="the_name">What is your name?</label>
+                <input type="text"id="the_name"name="the_name"placeholder="Enter your full name."size="50"required autofocus>
+            </p>
+            <p>
+                <label class="question" for="the_email">What is your email address?</label>
+                <input type="email" id="the_email" name="the_email" placeholder="Please use a real one!" size="50" required>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Survey Questions</legend>
+            <p>
+                <span class="question">Please check all that apply:</span><br>
+                <input type="checkbox" id="like_it" name="some_statements[]" value="I really like this website.">
+                <label for="like_it">I really like this website.</label><br>
+                <input type="checkbox" id="the_best" name="some_statements[]" value="Your website is the best site I have ever seen.">
+                <label for="the_best">Your website is the best site I have ever seen.</label><br>
+                <input type="checkbox" id="jealous" name="some_statements[]" value="Sure wish my site looked as good as yours.">
+                <label for="jealous">Sure wish my site looked as good as yours.</label><br>
+                <input type="checkbox" id="no_taste" name="some_statements[]" value="I have no taste at all, so your site isn't that great in my opinion.">
+                <label for="no_taste">I have no taste at all, so your site isn't that great in my opinion.</label><br>
+            </p>
+            <p>
+                <label for="the_text">Useless Text Field</label>
+                <input type="text" id="the_text" name="the_text" placeholder="Please enter only letters and numbers!"size="50" pattern="[a-z,A-Z,0-9]" required>
+            </p>
+            <p>
+                <label for="choose_scale">
+                    <span class="question">Please rate my site on a scale of 1 to 10.</span>
+                </label>
+                <input type="number" id="choose_scale" name="choose_scale" min="1" max="10" step="1" value="10">
+            </p>
+            <p>
+                <label for="choose_range">
+                    <span class="question">Please rate my site on a scale of 1 to 10 again with this slider.</span>
+                </label><br>
+                <input type="range" id="choose_range" name="choose_range" min="1" max="10" step="1" value="10">
+            </p>
+            <p>
+                <span class="question">Please choose the one thing that you love best about my website.</span>
+                <input type="radio" id="the_picture" name="best_thing" value="me">
+                <label for="the_picture">The amazing picture</label>
+                <input type="radio" id="the_animals" name="best_thing" value="animals">
+                <label for="the_animals">The animals</label>
+                <input type="radio" id="the_dandelions" name="best_thing" value="dandelions">
+                <label for="the_dandelions">The dandelions</label>
+                <input type="radio" id="the_story" name="best_thing" value="childhood story">
+                <label for="the_story">The story</label>
+            </p>
+            <p>
+                <label for="the_worst">
+                    <span class="question">Please indicate the one thing that I could improve about my website:</span>
+                </label><br>
+                <input type="text" name="the_worst" id="the_worst" placeholder="There's nothing bad, is there?" list="listOfBadChoices" size="50">
+            </p>
+            <p>
+                <label for="how_improve">
+                    <span class="question">What else would you like to see on my site?</span>
+                </label><br>
+                <select id="how_improve" name="how_improve">
+                    <optgroup label="Preferred">
+                        <option value="Nothing. It's perfect.">Nothing. It's perfect.</option>
+                    </optgroup>
+                    <optgroup label="Likely">
+                        <option value="More about the animals.">More about the animals.</option>
+                        <option value="More stories.">More stories.</option>
+                    </optgroup>
+                    <optgroup label="Unlikely">
+                        <option value="More about Elvis.">More about Elvis.</option>
+                    </optgroup>
+                </select>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Free for all!</legend>
+            <p>
+                <label for="message">
+                    <span class="question">Feel free to send more praise, gift offers, etc.:</span>
+                </label><br>
+                <textarea id="message"name="message"rows="7"cols="55"></textarea>
+            </p>
+        </fieldset>
+        <div id="buttons">
+            <input type="submit"value="Click Here to Submit"> or
+            <input type="reset"value="Erase and Start Over"> or
+            <button type="button"id="standardValues">Fill in Standard Values</button>
+        </div>
+        <input type="hidden"name="mailto"value="me@mysite.com">
+    </form>
+    <datalist id="listOfBadChoices">
+        <option value="nothing"></option>
+        <option value="nada"></option>
+        <option value="zip"></option>
+        <option value="zilch"></option>
+        <option value="I can't think of anything"></option>
+    </datalist>
+    <script>
+        document.getElementById("standardValues").addEventListener("click", function() {
+            document.getElementById("the_name").value = "John Smith";
+            document.getElementById("the_email").value= "john_smith@pocahontas.com";
+            document.gbForm.like_it.checked = true;
+            document.gbForm.choose_scale.value = "10";
+            document.gbForm.the_best.checked = true;
+            document.gbForm.best_thing[2].checked = true;
+            document.getElementById("the_worst").value = "Nothing";
+            document.gbForm.how_improve.value = "More about the animals.";
+            document.getElementById("errors").innerHTML = "<p>Don't forget to give your feedback and submit the form.</p>";
+            document.gbForm.message.focus();
+        });
+    </script>
+</body>
+</html>

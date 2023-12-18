@@ -1,0 +1,121 @@
+.legalstuff {
+    font-size: smaller;
+}
+body {
+    margin: 0;
+    padding: 0;
+    size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header {
+    float: left;
+    width: 100%;
+    display: table;
+    height: 200px;
+    background-color: burlywood;
+}
+#main {
+    width: 100%;
+    display: grid; /* Change to display: flex; for the commented flexbox code below to function. Also remove the grid stuff. */
+    overflow: hidden;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: auto;
+    grid-template-areas: "left_content main_content right_content";
+}
+#main_content {
+    float: left;
+    background-color: #ffffff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 30px;
+    /* order: 2; */
+    grid-area: main_content;
+}
+
+/* For table display */
+/* #main_content, #left_content, #right_content {
+    vertical-align: top;
+} */
+
+footer {
+    width: 100%;
+    background-color: #363636;
+    text-align: center;
+    font-style: italic;
+    position: absolute;
+    color: white;
+}
+#left_content {
+    background-color: #5fa062;
+    /* order: 1; */
+    grid-area: left_content;
+    margin-bottom: 0;
+}
+#right_content {
+    background-color: #5fa062;
+    /* order: 3; */
+    grid-area: right_content;
+    padding-left: 5px;
+    margin-bottom: 0;
+}
+#left_content ul {
+    list-style: none;
+    margin: 12px 0px 0px 12px;
+    padding: 0px;
+}
+#left_content li a:link {
+    color: #000000;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 3px 0px 3px 3px;
+    text-decoration: none;
+    display: block;
+}
+#left_content li a:visited {
+    color: #2e2e2e;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 3px 0px 3px 3px;
+    text-decoration: none;
+    display: block;
+}
+#left_content li a:active, #left_content li a:hover{
+    color: #555555;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 3px 0px 3px 3px;
+    text-decoration: none;
+    display: block;
+}
+h2 {
+    margin: 0;
+}
+img {
+    height: 200px;
+    display: table-cell;
+    vertical-align: middle;
+}
+h1 {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+a.button {
+    color: white;
+    background: linear-gradient(red,rgb(255, 94, 0));
+    border: 0;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    float: right;
+    margin: 0px 10px 5px 10px;
+    text-decoration: none;
+}
+a.button:hover {
+    transform: scale(1.2);
+    transition: transform 0.1s ease-in-out;
+}
+a.button:active {
+    transform: translate(2px, 1px) scale(1.195);
+    transition: none;
+}

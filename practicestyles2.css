@@ -1,0 +1,136 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(#8f4545,#d66f34,#3a3a99,#5c2861,#000000);
+    color: #dddddd;
+}
+article {
+    padding: 0;
+    margin: 0;
+}
+p {
+    width: max-content;
+    padding: 2px;
+}
+#solid {
+    border: 5px solid #dddddd;
+}
+#none {
+    border: 5px none #dddddd;
+}
+#hidden {
+    border: 5px hidden #dddddd;
+}
+#dashed {
+    border: 5px dashed #dddddd;
+}
+#dotted {
+    border: 5px dotted #dddddd;
+}
+#double {
+    border: 5px double #dddddd;
+}
+#groove {
+    border: 5px groove #dddddd;
+}
+#ridge {
+    border: 5px ridge #dddddd;
+}
+#inset {
+    border: 5px inset #dddddd;
+}
+#outset {
+    border: 5px outset #dddddd;
+}
+.box {
+    width: 700px;
+    height: 700px;
+    background: url(../practice-project/deer.jpg) center bottom / cover no-repeat, url(../practice-project/pumpkin.png) right top / 35% no-repeat;
+    background-size: 600px, 200px;
+    float: right;
+}
+div.images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+div.example1 {
+    border-radius: 20px;
+    border: 5px solid chartreuse;
+    width: 200px;
+    height: 350px;
+}
+div.example2 {
+    border-radius: 20px;
+    border: 5px solid chartreuse;
+    width: 200px;
+    height: 350px;
+    background: chartreuse;
+}
+div.example3 {
+    border-radius: 20px;
+    border: 5px solid chartreuse;
+    box-sizing: border-box;
+    width: 200px;
+    height: 350px;
+    background: linear-gradient(chartreuse, rgb(255, 0, 170));
+}
+h2 {
+    text-align: center;
+    color: chartreuse;
+}
+#main {
+    padding-left: 10px;
+}
+.outoftable {
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: 200px;
+    height: 350px;
+    background: linear-gradient(rgb(255, 255, 0), rgb(255, 0, 0));
+    display: inline-block;
+    padding: 20px;
+    color: black;
+    overflow: scroll;
+}
+.outoftable1 {
+    transform: rotate(0deg);
+}
+.outoftable2 {
+    transform: rotate(10deg) scale(0.9) skew(10deg);
+}
+.outoftable3 {
+    transform: rotate(20deg) scale(0.8) skew(20deg);
+}
+.outoftable4 {
+    transform: rotate(30deg) scale(0.7) skew(30deg);
+}
+.outoftable5 {
+    transform: rotate(40deg) scale(0.6) skew(40deg);
+}
+.outoftable6 {
+    transform: rotate(50deg) scale(0.5) skew(50deg);
+}
+.outoftable7 {
+    transform: rotate(60deg) scale(0.4) skew(60deg);
+}
+.outoftable8 {
+    transform: rotate(70deg) scale(0.3) skew(70deg);
+}
+.outoftable9 {
+    transform: rotate(80deg) scale(0.2) skew(80deg);
+}
+.animation {
+    width: 10rem;
+    height: 10rem;
+    background: radial-gradient(red,yellow);
+    border: 2px solid red;
+    transition: transform 1s ease-in-out;
+}
+.animation:hover {
+    transform: rotate(180deg);
+
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Display Example</title>
+</head>
+<body>
+    <h1>Form Display Example</h1>
+    <p>Enter the info and I'll dill whiff it waiter.</p>
+    <form name="form1" method="get" action="">
+        <p>NAME: <input name="name"size="50"></p>
+        <p>ADDRESS: <input name="address"size="50"></p>
+        <p>PHONE NO.: <input name="phone"size="50"></p>
+        <p><input type="button" value="Display" id="display"></p>
+    </form>
+    <script>
+        function display() {
+            var dispWin = window.open("","NewWin","menubar=no,toolbar=no,status=no,width=400,height=100");
+            var message = "<ul><li><strong>Name:</strong> " + document.form1.name.value;
+            message += "<li><strong>Address:</strong> " + document.form1.address.value;
+            message += "<li><strong>Phone Number:</strong> " + document.form1.phone.value;
+            message += "<ul>";
+            dispWin.document.write(message);
+        }
+        document.getElementById("display").addEventListener("click",display)
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-Text</title>
+    <link rel="stylesheet" href="practicestyles.css">
+</head>
+<body>
+    <header>
+        <h1>Pure Doughnutty Joy!</h1>
+    </header>
+    <div id="main">
+        <article id="main_content">
+            <h2>The Practice Webpage</h1>
+            <a class="button" href="../practice-project/doughnuts.html">BUY DOUGHNUTS NOW</a>
+            <p>
+                Donuts, the delectable fried pastries loved universally, embody a sweet temptation that transcends cultural boundaries, an indulgence revered for its tantalizing aroma, irresistible taste, and comforting familiarity. These circular treats, with their origins traced back to ancient times, have evolved into a symbol of joy, a confectionary delight that continues to captivate hearts worldwide. A testament to culinary creativity, donuts exist in a myriad of forms, from the classic ring-shaped yeast donuts to the cakey and dense old-fashioned varieties, from the elegant simplicity of glazed donuts to the extravagance of toppings laden with sprinkles, crushed nuts, or even bacon. The very process of making these treats, a delicate dance of mixing flour, sugar, and leavening agents, transforms humble ingredients into golden, puffy delights that promise sheer indulgence. The ritual of crafting donuts, whether in a traditional bakery or a modern artisanal shop, is an art form, a skill that demands patience, precision, and a touch of finesse. The sizzling sound as the dough meets hot oil, the gentle flip halfway through frying, and the careful glazing or dusting that follows – each step contributes to the symphony of creating a perfect donut. Beyond their culinary significance, donuts hold a special place in societal and communal contexts; they are symbols of celebration and comfort, often found at gatherings, celebrations, or as morning treats accompanying a cup of steaming coffee. They effortlessly evoke nostalgia, prompting memories of childhood trips to the local bakery, selecting from a dazzling array of flavors that trigger a sense of wonder and joy. In today's gastronomic landscape, donuts have undergone a renaissance, featuring innovative, unexpected flavors that push the boundaries of conventional taste – from matcha-infused dough to exotic fruit fillings, embracing the fusion of diverse cultural influences that reflect the ever-changing culinary landscape. The camaraderie surrounding donuts extends to the act of sharing – whether it's surprising a colleague with a box of assorted delights or enjoying a late-night snack with friends during moments of camaraderie and laughter. Moreover, the ubiquitous presence of donut shops, whether independent or part of larger chains, speaks to their enduring popularity. These hubs of sugary bliss often serve as community centers, fostering conversation and connection among patrons as they savor each delectable bite. Donuts, in all their variations, serve as both a canvas for creativity and a source of simple, unadulterated pleasure, bringing people together through their sheer sugary appeal, affirming their place as an iconic, time-honored treat that continues to enchant taste buds and warm hearts across the globe.
+            </p>
+        </article>
+        <aside id="right_content">
+            <p><strong>SPECIAL DOUGHNUT SALE!!!!!</strong></p>
+            <p>Buy 183.001 doughnuts and get a 184th for free. Limited time only. Act now!</p>
+            <p class="legalstuff"><em>The doughnut company claims no blah blah blah blah blah lorem ipsum blah blah blah legal stuff. 0.001 doughnuts shall cost no more than and no less than $500,000 dollars for the purpose of extracting the correct amount. More legal info, more legal info, blah blah blah.</em></p>
+
+        </aside>
+        <aside id="left_content">
+            <ul>
+                <li><a href="#left_content">List Item 1</a></li>
+                <li><a href="#">List Item 2</a></li>
+                <li><a href="#">List Item 3</a></li>
+                <li><a href="#">List Item 4</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p>Footer stuff, footer stuff, footer stuff.</p>
+        <button type="button" onclick="toggle();">Dark/Light Mode Toggle</button>
+    </footer>
+    <script>
+        var blackorwhite = "white";
+        function toggle() {
+            if (blackorwhite=="white") {
+                document.getElementById("main").style.background = "#111111";
+                document.getElementById("main").style.color = "#ffffff";
+                document.getElementById("main_content").style.background = "#111111";
+                document.getElementById("main_content").style.color = "#ffffff";
+                document.getElementById("left_content").style.background = "#3d8040";
+                document.getElementsByTagName("a").style.color = "#dddddd";
+                
+                blackorwhite = "black";
+            } else {
+                document.getElementById("main").style.background = "#ffffff";
+                document.getElementById("main").style.color = "#000000";
+                document.getElementById("main_content").style.background = "#ffffff";
+                document.getElementById("main_content").style.color = "#000000";
+                document.getElementById("left_content").style.background = "#5fa062";
+
+                blackorwhite = "white";
+            }
+        }
+    </script>
+</body>
+</html>

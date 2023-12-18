@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="jsstylepractice.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script>
+        function randomThing() {
+            random1 = new Array(4);
+            random2 = new Array(4);
+            color = new Array(4);
+            background = new Array(4);
+
+            random1[0] = "<img src='../practice-project/donut.png' title='No donut for you'>";
+            random2[0] = "<p>Do you enjoy the process of devouring doughnuts?</p>";
+            color[0] = "#ff0000";
+            background[0] = "../romemap.jpg";
+
+            random1[1] = "<img src='../practice-project/deer.jpg' title='No donut for you'>";
+            random2[1] = "<p>wow</p>";
+            color[1] = "#000000";
+            background[1] = "../img.jpg";
+
+            random1[2] = "<img src='../practice-project/mousepad.jfif' title='No donut for you'>";
+            random2[2] = "<p>I enjoy catching mice in the basement.</p>";
+            color[2] = "#0000ff";
+            background[2] = "../2987474.jpg";
+
+            random1[3] = "<img src='../practice-project/pumpkin.png' title='No donut for you'>";
+            random2[3] = "<p>When Jack ignited the lantern, he yelled 'ohh!!!', for his hand was burned, but he had invented the Jack-o-lantern.</p>";
+            color[3] = "#ff00ff";
+            background[3] = "images/breakfast-21707_640.jpg";
+
+            i = Math.floor(Math.random() * random1.length);
+            j = Math.floor(Math.random() * random2.length);
+            k = Math.floor(Math.random() * color.length);
+            l = Math.floor(Math.random() * background.length);
+            
+            contents = document.getElementById("picsandstuff");
+            header = document.getElementById("top");
+
+            contents.innerHTML = random1[i] + random2[j];
+            header.style.color = color[k];
+            document.getElementById("body").style.background="url("+background[l]+")";
+
+        }
+    </script>
+</head>
+<body id="body" style="padding: 0; margin: 0; background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div style="background: rgba(255, 255, 255, 0.849); width: 50%; height: 100%; padding: 1rem;">
+    <h1 id="top">Randomness</h1>
+    <p id="picsandstuff">Well, we are not feeling random today, I guess. Please reload the page or contact me at 816-&bull;&bull;&bull;-&bull;&bull;&bull;&bull;. GOOD AFTERNOON!</p>
+    </div>
+    <script>
+        randomThing();
+    </script>
+</body>
+</html>

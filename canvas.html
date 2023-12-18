@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="canvas.css">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="350" height="450"></canvas>
+    <script>
+        // Circle function: arc(x, y, radius, startAngle, endAngle, clockwise);
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        context.fillStyle = "rgb(255, 0, 0)";
+        context.fillRect(10,10, 70,70);
+        context.strokeStyle = "rgb(0, 0, 255)"
+        context.strokeRect(80,10, 70,70);
+
+        var startPoint = 0;
+        var endPoint = 2*Math.PI;
+        context.beginPath();
+        context.arc(200,200,100,startPoint,endPoint,true);
+        context.fillStyle = "rgba(76,39,39,0.5)";
+        context.fill();
+        context.strokeStyle = "rgba(39, 39, 76,0.5)";
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(10,10);
+        context.lineTo(300,50);
+        context.lineTo(300,400);
+        context.lineTo(10,10);
+        context.fill();
+        context.lineWidth = 5;
+        context.strokeStyle = "rgb(255, 255, 0)";
+        context.stroke();
+
+        // context.drawImage(clipx, clipy, clipwidth, clipheight, gox, goy, gowidth, goheight);
+        var img = new Image();
+        img.src = "../practice-project/donut.png";
+        img.onload = function() {
+            context.drawImage(img, 150, 150, 100, 100)
+            context.drawImage(img, 0, 0, 320, 640, 200, 300, 50, 100)
+        }
+
+    </script>
+</body>
+</html>

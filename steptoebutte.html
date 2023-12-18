@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steptoe Butte</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+        img {
+            margin: 0 12px 6px 0;
+            border: 1px solid #000;
+        }
+        .main_img {
+            float: left;
+            max-width: 35%;
+            height: auto;
+        }
+        #eHide, #pHide, #elevation, #photos {
+            display: none;
+        }
+        #eShow, #pShow {
+            display: block;
+        }
+        #photos {
+            clear: both;
+        }
+        #photos img {
+            max-width: 80px;
+            height: auto;
+            clear: left;
+        }
+        .fakelink {
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            color: #e03a3e;
+        }
+        section {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Steptoe Butte</h1><h2 id="clock" style="float: right;"></h2></header>
+    <section>
+        <p>
+            <img src="images/Steptoe_butte.jpg" class="main_img" alt="Steptoe Butte">
+            Steptoe Butte is a quartzite island jutting out of the silty loess of the <a href="http://en.wikipedia.org/wiki/Palouse">Palouse</a> hills in Whitman County, Washington, in the northwest United States. The 3,612-foot (1,101 m) butte is preserved as Steptoe Butte State Park, a publicly owned 150-acre (61 ha) recreation area located 12 miles (19 km) north of Colfax. The rock that forms the butte is over 400 million years old, in contrast with the 15-7 million year old <a href="http://en.wikipedia.org/wiki/Columbia_River">Columbia River</a> Basalts that underlie the rest of the Palouse. Steptoe Butte has become an archetype, as isolated protrusions of bedrock, such as summits of hills or mountains, in lava flows have come to be called "steptoes". Steptoe and Kamiak Buttes are outliers of Idaho's Coeur d'Alene Mountains.
+        </p>
+        <p>
+            The butte was named after <a href="http://en.wikipedia.org/wiki/Colonel_Edward_Steptoe">Colonel Edward Steptoe</a>. A hotel built by James S. "Cashup" Davis stood atop the butte from 1888 to 1908, burning down in 1911. In 1946, Virgil McCroskey donated 120 acres (49 ha) of land to form the park, which was later increased to over 150 acres (61 ha). The east,south and west portions of the butte were purchased in 2016 by two couples Kent and Elaine Bassett, and Ray and Joan Folwell. The owners planned to protect their 437 acres (177 ha) of land from development, eventually donating it to the state. This plan came to fruition when they sold the land to the Washington State Department of Natural Resources in December 2021.
+        </p>
+    </section><br>
+    <section>
+        <button class="fakelink" id="eShow">
+            Show Elevation &raquo;
+        </button>
+        <button class="fakelink" id="eHide">
+            Hide Elevation &laquo;
+        </button>
+        <div id="elevation">
+            3,612 feet (1,101 m), approximately 1,000 feet (300 m) above the surrounding countryside.
+        </div>
+    </section>
+    <section>
+        <button type="button" class="fakelink" id="pShow">
+            Show Photos &raquo;
+        </button>
+        <button type="button" class="fakelink" id="pHide">
+            Hide Photos &laquo;
+        </button>
+        <div id="photos">
+            <img src="images/carsatsteptoe.jpg" alt="Cars stepping on the toe butt(e)">
+            <img src="images/touriststeptoe.jpg" alt="Tortoises stepping on the toe butt(e)">
+            <img src="images/breakfast-21707_640.jpg" alt="cheese." title="cheese." onclick="location.href = 'http://www.cheese.com'">
+        </div>
+    </section>
+    <noscript>
+        This page requires JavaScript compatability to correctly function. You can either switch to a browser that supports JavaScript or turn on your browser's script support.
+    </noscript>
+    <footer>
+        <p>
+            <em>Text and most of the photos from <a href="http://en.wikipedia.org/wiki/Steptoe_Butte">Wikipedia</a>.</em>
+        </p>
+        <ul id="info"></ul>
+        <button type="button" id="infodisplay" class="fakelink">Display Browser Info</button>
+    </footer>
+    <script>
+        document.getElementById("eShow").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("eHide").style.display = "block";
+            document.getElementById("elevation").style.display = "block";
+            document.getElementById("photos").style.display = "none";
+            document.getElementById("pShow").style.display = "block";
+            document.getElementById("pHide").style.display = "none";
+        });
+        document.getElementById("eHide").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("eShow").style.display = "block";
+            document.getElementById("elevation").style.display = "none";
+        });
+        document.getElementById("pShow").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("pHide").style.display = "block";
+            document.getElementById("photos").style.display = "block";
+            document.getElementById("elevation").style.display = "none";
+            document.getElementById("eShow").style.display = "block";
+            document.getElementById("eHide").style.display = "none";
+        });
+        document.getElementById("pHide").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("pShow").style.display = "block";
+            document.getElementById("photos").style.display = "none";
+        });
+        // function clock() {
+        //     var clock = document.getElementById("clock");
+        //     timeoutID = window.setTimeout("update();", 1000);
+//UNFINISHED CLOCK PROGRAM
+        // }
+        // function update() {
+        //     now = new Date();
+        //     clock.innerHTML = "The time is " + now.getHours() + ":" + now.getMinutes() +":"+ now.getSeconds();
+        //     timeoutID = window.setTimeout("update();", 1000);
+        // }
+        // clock();
+        document.getElementById("infodisplay").addEventListener("click", function() {
+            var txt = "";
+            txt += "<li><strong>Code Name: </strong>"+navigator.appCodeName+"</li>";
+            txt += "<li><strong>App Name: </strong>"+navigator.appName+"</li>";
+            txt += "<li><strong>App Version: </strong>"+navigator.appVersion+"</li>";
+            txt += "<li><strong>User Agent: </strong>"+navigator.userAgent+"</li>";
+            txt += "<li><strong>Language: </strong>"+navigator.language+"</li>";
+            txt += "<li><strong>Platform: </strong>"+navigator.platform+"</li>";
+
+            document.getElementById("info").innerHTML = txt;
+            document.getElementById("infodisplay").style.display = "none";
+        });
+    </script>
+</body>
+</html>

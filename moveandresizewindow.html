@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move and Resize a Window!</title>
+</head>
+<body>
+    <h1>Moving and Resizing Windows</h1>
+    <button type="button" id="show">Click to Show Window</button>
+    <form name="changeform">
+        <p>
+            <strong>Resize to:</strong><br>
+            <input size="5" type="text" name="w"> pixels wide and<br>
+            <input size="5" type="text" name="h"> pixels high.
+        </p>
+        <p>
+            <strong>Move to:</strong>
+            xcoord: <input size="5" type="text" name="x">
+            ycoord: <input size="5" type="text" name="y">
+        </p>
+        <p><input type="button" value="Change Window" id="changeWindow"></p>
+    </form>
+    <script>
+        function changeWindow() {
+            if ((document.changeform.w.value) && (document.changeform.h.value)) {
+                NewWin.resizeTo(document.changeform.w.value, document.changeform.h.value);
+            }
+            if((document.changeform.x.value) && (document.changeform.y.value)) {
+                NewWin.moveTo(document.changeform.x.value, document.changeform.y.value);
+            }
+        }
+        document.getElementById("show").addEventListener("click", function() {
+            NewWin = window.open("", "NewWin", "width=200,height=100");
+        });
+        document.getElementById("changeWindow").addEventListener("click", changeWindow);
+    </script>
+</body>
+</html>

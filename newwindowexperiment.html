@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Premium Windows</title>
+</head>
+<body>
+    <h1>Create A New Window</h1>
+    <p>Use the buttons below to experiment with JS windows.</p>
+    <button type="button" id="open_new">Open a new window</button>
+    <button type="button" id="close_new">Close the new window</button>
+    <button type="button" id="close_main">Close the main window</button>
+    <script>
+        document.getElementById("open_new").addEventListener("click", function() {
+            newWin = window.open("", "NewWin", "toolbar=0, status=0, width=200, height=100");
+        });
+        document.getElementById("close_new").addEventListener("click", function() {
+            newWin.close();
+        });
+        document.getElementById("close_main").addEventListener("click", function() {
+            window.self.close();
+        });
+    </script>
+</body>
+</html>
